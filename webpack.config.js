@@ -61,8 +61,8 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
+        test: /\.(png|jpg|gif|svg|woff|ttf|eot)$/,
+        loader: 'url-loader',
         options: {
           name: '[name].[ext]?[hash]'
         }
@@ -83,7 +83,14 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
