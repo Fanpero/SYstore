@@ -22,11 +22,11 @@
                         <a>退出</a>
                         <strong>|</strong>
                     </span>
-                    <a href="" class="">
+                    <router-link to="/shopCart" class="">
                         <i class="iconfont icon-cart"></i>购物车(
                         <span id="shoppingCartCount">
                             <span>4</span>
-                        </span>)</a>
+                        </span>)</router-link>
                 </div>
             </div>
         </div>
@@ -62,9 +62,9 @@
                             </a>
                         </li>
                         <li class="goods">
-                            <a href="" class="router-link-exact-active ">
+                            <router-link to="/goodsList" class="router-link-exact-active ">
                                 <span class="out" style="top: 0px;">购物商城</span>
-                            </a>
+                            </router-link>
                         </li>
                     </ul>
                 </div>
@@ -81,7 +81,7 @@
     </div>
 
     <!-- 路由出口 -->
-
+    <router-view></router-view>
     <!-- ................................................ -->
     <div class="footer">
         <div class="section">
