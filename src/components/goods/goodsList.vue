@@ -77,7 +77,7 @@
                 <div class="wrap-box">
                     <ul class="img-list">
                         <li v-for="subItem in item.datas" :key="subItem.artID">
-                            <a href="#/site/goodsinfo/87" class="">
+                            <router-link :to="/goodsDetail/ + subItem.artID" class="">
                                 <div class="img-box">
                                     <img :src="subItem.img_url">
                                 </div>
@@ -92,7 +92,7 @@
                                         </span>
                                     </p>
                                 </div>
-                            </a>
+                            </router-link>
                         </li>
                     </ul>
                 </div>
@@ -138,7 +138,7 @@
                 const url = 'site/goods/getgoodsgroup';
 
                 this.$axios(url).then(res => {
-                    console.log(res);
+                    // console.log(res);
 
                     this.goods = res.data.message;
                 })

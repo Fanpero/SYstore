@@ -25,7 +25,7 @@ const router = new VueRouter({
   routes: [
     {path: '/', redirect: '/goodsList'},
     {path: '/goodsList', component: goodsList},
-    {path: '/goodsDetail', component: goodsDetail},
+    {path: '/goodsDetail/:goodsId', component: goodsDetail},
     {path: '/shopCart', component: shopCart}
   ]
 })
