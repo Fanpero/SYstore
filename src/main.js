@@ -1,14 +1,21 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import axios from 'axios';
+import moment from 'moment';
+import ElementUI from 'element-ui';
 
 // 导入根组件
 import App from './App.vue';
 
 Vue.use(VueRouter);
+Vue.use(ElementUI);
 
 axios.defaults.baseURL = 'http://47.106.148.205:8899/';
 Vue.prototype.$axios = axios;
+
+Vue.filter('dateFmt',(input,timeStr="YYYY-MM-DD") => {
+  return moment(input).format(timeStr);
+})
 
 import goodsList from './components/goods/goodsList.vue';
 import goodsDetail from './components/goods/goodsDetail.vue';
@@ -23,6 +30,7 @@ const router = new VueRouter({
   ]
 })
 
+import "element-ui/lib/theme-chalk/index.css";
 import "./assets/site/css/style.css";
 
 new Vue({
