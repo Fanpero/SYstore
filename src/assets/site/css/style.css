@@ -10,6 +10,12 @@ ol,ul,li,dl,dd{ margin:0 auto; padding:0; list-style-type:none; }
 i,em{ font-style:normal; }
 table { border-collapse:collapse; border-spacing:0; }
 
+/* 解决v-html渲染图文详情时出现图片有缝隙
+----------------------------------------------------------------- */
+.ql-align-center {
+    font-size: 0;
+}
+
 /*Clear Fix*/ 
 .clearfix:after{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
 .clearfix{ display:inline-block; } 

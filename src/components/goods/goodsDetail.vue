@@ -104,20 +104,20 @@
                             </div>
                         </div>
                         <div id="goodsTabs" class="goods-tab bg-wrap">
-                            <div id="tabHead" class="tab-head" style="position: static; top: 517px; width: 925px;">
-                                <ul>
-                                    <li>
-                                        <a href="javascript:;" class="selected">商品介绍</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">商品评论</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tab-content entry" style="display: block;">
-                                内容
-                            </div>
-                            <div class="tab-content" style="display: block;">
+                            <Affix>
+                                <div id="tabHead" class="tab-head" style="position: static; top: 517px; width: 925px;">
+                                    <ul>
+                                        <li>
+                                            <a @click="isShow = true" :class="{selected: isShow}" href="javascript:;">商品介绍</a>
+                                        </li>
+                                        <li>
+                                            <a @click="isShow = false" :class="{selected: !isShow}" href="javascript:;">商品评论</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </Affix>
+                            <div v-if="goodsDetail.goodsinfo" v-show="isShow" v-html="goodsDetail.goodsinfo.content" class="tab-content entry" style="display: block;"></div>
+                            <div v-show="!isShow" class="tab-content" style="display: block;">
                                 <div class="comment-box">
                                     <div id="commentForm" name="commentForm"
                                         class="form-box">
@@ -206,11 +206,18 @@
 
 <script>
     import '../../assets/site/js/jqueryplugins/jqimgzoom/js/magnifier.js'
+    import { Affix } from 'iview';
+
     export default {
         data() {
             return {
-                goodsDetail: {}
+                goodsDetail: {},
+                isShow: true
             }
+        },
+
+        components: {
+            Affix
         },
 
         created() {

@@ -79,7 +79,7 @@
                         <li v-for="subItem in item.datas" :key="subItem.artID">
                             <router-link :to="/goodsDetail/ + subItem.artID" class="">
                                 <div class="img-box">
-                                    <img :src="subItem.img_url">
+                                    <img v-lazy="subItem.img_url">
                                 </div>
                                 <div class="info">
                                     <h3>{{subItem.artTitle}}</h3>
